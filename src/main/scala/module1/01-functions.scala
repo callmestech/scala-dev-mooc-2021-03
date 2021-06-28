@@ -2,6 +2,7 @@ package module1
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
+import scala.reflect.ClassTag
 
 object functions {
 
@@ -49,7 +50,7 @@ object functions {
   /**
    * Without use built-in functions
    * */
-  def filter[A](xs: Array[A])(p: A => Boolean): Array[A] = {
+  def filter[A: ClassTag](xs: Array[A])(p: A => Boolean): Array[A] = {
     val buf: mutable.ArrayBuffer[A] = ArrayBuffer()
 
     for (i <- xs.indices) {

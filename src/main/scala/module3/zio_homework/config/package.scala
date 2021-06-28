@@ -10,4 +10,6 @@ package object config {
 
   val load: Task[AppConfig] =
     Task.effect(ConfigSource.file(Paths.get("src/main/resources/application.conf")).loadOrThrow[AppConfig])
+
+  val default: AppConfig = AppConfig("my_cool_app", "https://www.mycoolapp.io")
 }
